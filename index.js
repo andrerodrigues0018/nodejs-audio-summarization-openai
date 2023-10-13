@@ -78,7 +78,7 @@ async function transcribeSummarizate(transcription){
 	};
 
 	const data = {
-		prompt: `Chatgpt, preciso que você resuma esse texto extraído como se eu fosse mineiro: ${transcription}`,
+		prompt: `Chatgpt, preciso que você resuma esse texto extraído: ${transcription}`,
 		max_tokens: 400,
 		model: "gpt-3.5-turbo-instruct",
 	};
