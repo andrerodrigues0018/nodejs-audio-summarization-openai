@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Andrerodrigues0018/nodejs-audio-summarization-openai/issues"
   },
-  "homepage": "https://github.com/Andrerodrigues0018/nodejs-audio-summarization-openai#readme"
+  "homepage": "https://github.com/Andrerodrigues0018/nodejs-audio-summarization-openai#readme",
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
 }
