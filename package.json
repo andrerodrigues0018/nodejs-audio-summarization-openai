@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-audio-summarization-openai",
+  "version": "1.0.0",
+  "description": "This repository contains a step-by-step guide and sample code to demonstrate how to use Node.js in conjunction with OpenAI's API to perform topic summarization from audio. Learn how to integrate natural language processing and artificial intelligence technologies to effectively and efficiently summarize audio content.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrerodrigues0018/nodejs-audio-summarization-openai.git"
+  },
+  "author": "@andrerodrigues0018",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Andrerodrigues0018/nodejs-audio-summarization-openai/issues"
+  },
+  "homepage": "https://github.com/Andrerodrigues0018/nodejs-audio-summarization-openai#readme"
+}
