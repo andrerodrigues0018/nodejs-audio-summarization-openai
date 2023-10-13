@@ -36,7 +36,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     // Remove the temporary file after it's sent
     fs.unlinkSync(mp3File.path);
 
-    res.json({ message: 'File uploaded and sent successfully', file: mp3File });
+    res.json({ message: 'File uploaded and sent successfully', file: mp3File, transcription });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error });
@@ -61,7 +61,7 @@ async function transcribeGenerate(file){
 			data: formData,
 		})
 
-		console.log(retorno.data.text)
+		return retorno.data.text
 	} catch (error) {
 		throw new Error(error);
 	}
