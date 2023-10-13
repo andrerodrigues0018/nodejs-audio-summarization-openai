@@ -33,10 +33,12 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 		console.log(mp3File)
 		const transcription = await transcribeGenerate(mp3File)
 
+		const summarized = await transcribeSummarizate(transcription)
+
     // Remove the temporary file after it's sent
     fs.unlinkSync(mp3File.path);
 
-    res.json({ message: 'File uploaded and sent successfully', file: mp3File, transcription });
+    res.json({ message: 'File uploaded and sent successfully', file: mp3File, transcription, summarized });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error });
@@ -52,7 +54,7 @@ async function transcribeGenerate(file){
 	
 	try {
 		const retorno = await axios({
-			method: 'post',
+			method: 'POST',
 			url: 'https://api.openai.com/v1/audio/transcriptions',
 			headers: {
 				'Authorization': `Bearer ${process.env.OPENAI_KEY}`,
@@ -62,6 +64,30 @@ async function transcribeGenerate(file){
 		})
 
 		return retorno.data.text
+	} catch (error) {
+		throw new Error(error);
+	}
+
+}
+
+async function transcribeSummarizate(transcription){
+
+	const headers = {
+		'Authorization': `Bearer ${process.env.OPENAI_KEY}`,
+		'Content-Type': 'application/json',
+	};
+
+	const data = {
+		prompt: `Chatgpt, preciso que você resuma esse texto extraído como se eu fosse mineiro: ${transcription}`,
+		max_tokens: 400,
+		model: "gpt-3.5-turbo-instruct",
+	};
+
+	const url = 'https://api.openai.com/v1/completions'
+
+	try {
+		const retorno = await axios.post(url, data, { headers })
+		return retorno.data.choices[0].text
 	} catch (error) {
 		throw new Error(error);
 	}
