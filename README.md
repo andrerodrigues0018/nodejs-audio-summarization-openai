@@ -56,3 +56,22 @@ $ curl --request POST \
   --header 'Content-Type: multipart/form-data' \
   --form 'file=@C:\Users\###\Desktop\example.mp3'
 ```
+Response Example: 
+```json
+{
+	"message": "File uploaded and sent successfully",
+	"file": {
+		"fieldname": "file",
+		"originalname": "example.mp3",
+		"encoding": "7bit",
+		"mimetype": "audio/mpeg",
+		"destination": "uploads/",
+		"filename": "file-1697228309220-615435402.mp3",
+		"path": "uploads\\file-1697228309220-615435402.mp3",
+		"size": 203399
+	},
+	"transcription": "Um levantamento arquitetônico é quando a gente vai até o local, tira todas as medidas que seriam a medida do terreno, o perímetro da casa, as medidas dos cômodos também. A gente faz a notação da quantidade de cômodos que tem na casa para que seja calculada a metragem construída, a metragem do terreno, a metragem de área coberta e de áreas livres. Esse processo pode resultar em vários documentos, como um projeto arquitetônico do local, como um laudo técnico e memorial descritivo. E é muito importante que ele contenha o maior número de detalhes possível, todas as medidas, também especificação de pé direito, de material que a casa foi construída, tipo de estrutura, tipo de piso se contém laje, se contém forro, o tipo de telhado, o tipo de cobertura que foi utilizada, o maior número de detalhes possível para que tenha um resultado assertivo e positivo.",
+	"summarized": "\n\nUm levantamento arquitetônico é feito para obter medidas do terreno, perímetro e cômodos de uma casa, possibilitando o cálculo da metragem construída, do terreno e das áreas cobertas e livres. Esse processo pode gerar documentos como projetos arquitetônicos, laudos técnicos e memorial descritivo, sendo importante conter detalhes como medidas, pé-direito, materiais e estruturas utilizados para garantir um resultado preciso e positivo."
+}
+```
+
